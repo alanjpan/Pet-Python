@@ -17,9 +17,11 @@ import time
 from threading import Thread
 
 food = 10
+pet = True
 
 def depreciation():
     global food
+    global pet
     
     while food > 0:
         time.sleep(1)
@@ -28,9 +30,10 @@ def depreciation():
             print(";_;")
         print("Food remaining: " + str(food))
     print("Pet Python died of starvation.")
+    pet = False
     
 Thread(target = depreciation).start()
 
-while food > 0:
+while pet == True:
     response = input("Feed something: ")
     food += len(response)
